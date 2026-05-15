@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1xBet Bangladesh - Super Blog & Betting News</title>
+    <style>
+        /* --- Color Variables & Resets --- */
+        :root {
+            --primary-blue: #007ACC;
+            --primary-hover: #005f9e;
+            --secondary-dark: #313131;
+            --bg-white: #FFFFFF;
+            --bg-light: #F0F2F5;
+            --text-main: #333333;
+            --text-muted: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-blue);
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: var(--secondary-dark);
+            color: var(--bg-white);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--bg-white);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .lang-toggle {
+            color: var(--bg-white);
+            margin-right: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        .btn-login {
+            background-color: transparent;
+            color: var(--bg-white);
+            border: 1px solid var(--bg-white);
+        }
+
+        .btn-register {
+            background-color: var(--primary-blue);
+            color: var(--bg-white);
+        }
+
+        .btn-register:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-dark) 0%, #1a1a1a 100%);
+            color: var(--bg-white);
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            color: #cccccc;
+        }
+
+        /* --- Blog Layout --- */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 5%;
+        }
+
+        .section-title {
+            color: var(--secondary-dark);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-blue);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .blog-card {
+            background-color: var(--bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-img {
+            height: 200px;
+            background-color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-category {
+            font-size: 12px;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .blog-title {
+            font-size: 1.2rem;
+            color: var(--secondary-dark);
+            margin-bottom: 10px;
+        }
+
+        /* --- Trust & Features Section --- */
+        .features-wrapper {
+            background-color: var(--bg-white);
+            padding: 50px 5%;
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-box h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .feature-box ul {
+            list-style-position: inside;
+            color: var(--text-muted);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--secondary-dark);
+            color: var(--bg-white);
+            padding: 40px 5% 20px 5%;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid #444;
+            padding-bottom: 30px;
+        }
+
+        .footer-grid h4 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .footer-grid ul {
+            list-style: none;
+        }
+
+        .footer-grid ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-grid ul li a {
+            color: #cccccc;
+            transition: color 0.2s;
+        }
+
+        .footer-grid ul li a:hover {
+            color: var(--bg-white);
+        }
+
+        .partners {
+            margin-top: 20px;
+            color: #999;
+            font-size: 12px;
+        }
+
+        .payments {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .payments span {
+            background: #444;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-nav">
+            <a href="#" class="logo">
+                <img src="https://indian.1xbet.com/genfiles/cms/71-413/desktop/media_asset/073611ca8173e6613ed1e3557811f02b.svg" alt="1xBet Logo">
+            </a>
+            <nav class="nav-links">
+                <a href="#">BPL 2026</a>
+                <a href="#">Cricket</a>
+                <a href="#">Sports</a>
+                <a href="#">Live</a>
+                <a href="#">1xGames</a>
+                <a href="#">Casino</a>
+            </nav>
+        </div>
+        <div class="auth-buttons">
+            <span class="lang-toggle">BN / EN</span>
+            <button class="btn btn-login">Log In</button>
+            <button class="btn btn-register">Registration</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Get lucky with 1xBet Bangladesh</h1>
+        <p>Your Ultimate Super Blog for Betting Insights, BPL Updates, and Casino Strategies. 1xBet unites over 3 million customers from all over the world who are ready to hit the jackpot!</p>
+        <button class="btn btn-register" style="padding: 15px 30px; font-size: 16px;">Read Latest News & Bet Now</button>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">TOP-EVENTS & BLOG POSTS</h2>
+        
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-img" style="background-color: #0b8252;">BPL 2026 Prediction</div>
+                <div class="blog-content">
+                    <div class="blog-category">Cricket / BPL</div>
+                    <h3 class="blog-title">Bangladesh Premier League: Who Will Take the Trophy This Year?</h3>
+                    <p class="text-muted">Dive into our detailed analytics and expert predictions for the upcoming BPL matches. Find the best odds and betting strategies.</p>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-img" style="background-color: #d12229;">1xGames Exclusive</div>
+                <div class="blog-content">
+                    <div class="blog-category">Casino / Slots</div>
+                    <h3 class="blog-title">Maximize Your Wins: Daily Quests & Cashback Features</h3>
+                    <p class="text-muted">Learn how to utilize the wheel of fortune, claim cashback on selected 1xGames, and boost your daily bonuses.</p>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-img" style="background-color: #1a1a1a;">Esports Betting Guide</div>
+                <div class="blog-content">
+                    <div class="blog-category">Esports / Live</div>
+                    <h3 class="blog-title">The Rise of Esports Betting in Bangladesh</h3>
+                    <p class="text-muted">A comprehensive guide to placing live bets on Dota 2, CS:GO, and more. Get personalized promotional offers today.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="features-wrapper">
+        <div class="features-grid">
+            <div class="feature-box">
+                <h3>Secure Gaming Platform</h3>
+                <p>We ensure your safety with 5 levels of account protection:</p>
+                <ul>
+                    <li>Two-factor authentication</li>
+                    <li>Monitoring of all account sessions</li>
+                    <li>Security question setup</li>
+                    <li>Link email address</li>
+                    <li>Verification by phone number</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h3>Safe Transactions</h3>
+                <p>Fast deposits and payouts tailored for Bangladesh. Payouts are made using the same method as the deposit.</p>
+                <br>
+                <strong>Popular Methods:</strong> bKash, Nagad, Rocket, Upay, Bank Transfer, Visa/Mastercard, Tether, Tron, Bitcoin.
+            </div>
+
+            <div class="feature-box">
+                <h3>A Trusted Industry Leader</h3>
+                <p>Since 2007, 1xBet has cemented its reputation as a reliable brand. We provide detailed analytics to increase your chances of winning.</p>
+                <br>
+                <strong>Global Partners:</strong> FC Barcelona, PSG, Serie A, Volleyball World.
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Affiliate Program</a></li>
+                    <li><a href="#">Сookie Policy</a></li>
+                    <li><a href="#">Contacts</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Betting & Games</h4>
+                <ul>
+                    <li><a href="#">Sports & Multi-LIVE</a></li>
+                    <li><a href="#">Toto & Statistics</a></li>
+                    <li><a href="#">Casino & 1xGames</a></li>
+                    <li><a href="#">Plinko</a></li>
+                    <li><a href="#">Results</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Apps & Platforms</h4>
+                <ul>
+                    <li><a href="#">iOS App</a></li>
+                    <li><a href="#">Android App</a></li>
+                    <li><a href="#">Mobile version</a></li>
+                    <li><a href="#">Payment methods</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Customer Support</h4>
+                <p style="color: #ccc; margin-bottom: 10px;">We are always here for you: contact us by phone, online chat or email.</p>
+                <ul>
+                    <li>📞 0008000820051</li>
+                    <li>📞 0008000503276</li>
+                    <li>📞 +44 127 325-69-87</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="payments">
+            <span>bKash</span>
+            <span>Nagad</span>
+            <span>Rocket</span>
+            <span>Upay</span>
+            <span>GooglePay</span>
+            <span>Visa/Mastercard</span>
+            <span>Tether (USDT)</span>
+            <span>Bitcoin</span>
+        </div>
+
+        <div class="partners">
+            Global partner of FC Barcelona | Official Presenting Sponsor of Serie A TIM | Official Partner of PSG | Title partner of MongolZ
+        </div>
+
+        <div class="copyright">
+            <p>1xBet uses cookies to ensure the best user experience. By remaining on the website, you consent to the use of your cookie files on 1xBet.</p>
+            <br>
+            <p>Copyright © 2026 «1xBet». 18+</p>
+        </div>
+    </footer>
+
+</body>
+</html>
